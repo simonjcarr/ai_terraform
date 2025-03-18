@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { useChat } from "@ai-sdk/react"
-import { Sparkles, Copy, Download, Send, Trash2 } from "lucide-react"
+import { Sparkles, Copy, Download, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Header from "@/components/header"
 
 export default function Home() {
   const [code, setCode] = useState("")
@@ -49,20 +50,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen dark">
-      <header className="border-b">
-        <div className="container flex items-center h-14 px-4">
-          <h1 className="text-xl font-bold flex items-center">
-            <Sparkles className="mr-2 h-5 w-5 text-blue-500" />
-            AI-Terraform
-          </h1>
-          <div className="ml-auto">
-            <Button variant="outline" size="sm" onClick={clearChat}>
-              <Trash2 className="h-4 w-4 mr-2" />
-              Clear
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header clearChat={clearChat} />  
 
       <main className="flex-1 container grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
         <div className="flex flex-col h-[calc(100vh-8rem)]">
